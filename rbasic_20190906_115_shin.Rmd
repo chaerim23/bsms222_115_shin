@@ -255,7 +255,7 @@ To work efficiently in R, it is important to learn the different types of variab
 
 Up to now, the variables we have defined are just one number. This is not very useful for storing data. The most common way of storing a dataset in R is in a data frame. Conceptually, we can think of a data frame as a table with rows representing observations and the different variables reported for each observation defining the columns. Data frames are particularly useful for datasets because we can combine different data types into one object.
 
-A large proportion of data analysis challenges start with data stored in a data frame. For example, we stored the data for our motivating example in a data frame. You can access this dataset by loading the dslabs library and loading the `murders` dataset using the `data` function:
+A large proportion of data analysis challenges start with data stored in a data frame. For example, we stored the data for our motivating example in a data frame. You can access this dataset by loading the **dslabs** library and loading the `murders` dataset using the `data` function:
 ```{r}
 library(dslabs)
 data(murders)
@@ -291,7 +291,7 @@ names(murders)
 ```
 It is important to know that the order of the entries in `murders$population` preserves the order of the rows in our data table. This will later permit us to manipulate one variable based on the results of another. For example, we will be able to order the state names by the number of murders.
 
-`Tip`: R comes with a very nice auto-complete functionality that saves us the trouble of typing out all the names. Try typing `murders$p` then hitting the tab key on your keyboard. This functionality and many other useful auto-complete features are available when working in RStudio.
+**Tip**: R comes with a very nice auto-complete functionality that saves us the trouble of typing out all the names. Try typing `murders$p` then hitting the tab key on your keyboard. This functionality and many other useful auto-complete features are available when working in RStudio.
 
 ## 3.5.3 Vectors: numerics, characters, and logical
 
@@ -328,7 +328,7 @@ In future sections, you will see how useful relational operators can be.
 
 We discuss more important features of vectors after the next set of exercises.
 
-`Advanced`: Mathematically, the values in `pop` are integers and there is an integer class in R. However, by default, numbers are assigned class numeric even when they are round integers. For example, `class(1)` returns numeric. You can turn them into class integer with the `as.integer()` function or by adding an `L` like this: `1L`. Note the class by typing: `class(1L)`
+**Advanced**: Mathematically, the values in `pop` are integers and there is an integer class in R. However, by default, numbers are assigned class numeric even when they are round integers. For example, `class(1)` returns numeric. You can turn them into class integer with the `as.integer()` function or by adding an `L` like this: `1L`. Note the class by typing: `class(1L)`
 
 ## 3.5.4 Factors
 
@@ -353,7 +353,7 @@ levels(region)
 ```
 The new order is in agreement with the fact that the Northeast has the least murders and the South has the most.
 
-`Warning`: Factors can be a source of confusion since sometimes they behave like characters and sometimes they do not. As a result, confusing factors and characters are a common source of bugs.
+**Warning**: Factors can be a source of confusion since sometimes they behave like characters and sometimes they do not. As a result, confusing factors and characters are a common source of bugs.
 
 ## 3.5.5 Lists
 
