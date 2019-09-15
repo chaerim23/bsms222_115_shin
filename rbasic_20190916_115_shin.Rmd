@@ -1,9 +1,6 @@
 ---
 output: html_notebook
 ---
-```{r}
-library("purrr")
-```
 
 # 4.4 For-loops
 
