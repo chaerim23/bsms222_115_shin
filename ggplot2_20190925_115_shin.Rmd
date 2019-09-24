@@ -548,7 +548,7 @@ p + scale_x_log10()
 p + scale_x_log10() + scale_y_log10() 
 ```
 
-16. Now edit the code above to add the title “Gun murder data” to the plot. Hint: use the `ggtitle` function. 
+16. Now edit the code above to add the title “Gun murder data” to the plot. Hint: use the `ggtitle` function.
 ```{r}
 p + scale_x_log10() + scale_y_log10() + ggtitle("Gun murder data")
 ```
