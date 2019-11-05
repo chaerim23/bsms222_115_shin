@@ -1778,9 +1778,6 @@ x &lt;- heights %&gt;% filter(sex==&quot;Male&quot;) %&gt;% pull(height)</code><
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMSAtIEYoNzApXG5gYGAifQ== -->
 <pre class="r"><code>1 - F(70)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMzc2ODQ3M1xuIn0= -->
-<pre><code>[1] 0.3768473</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Once a CDF is defined, we can use this to compute the probability of any subset. For instance, the probability of a student being between height <code>a</code> and height <code>b</code> is:</p>
@@ -1811,9 +1808,6 @@ x &lt;- heights %&gt;% filter(sex==&quot;Male&quot;) %&gt;% pull(height)</code><
 s &lt;- sd(x)
 1 - pnorm(70.5, m, s)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMzcxMzY5XG4ifQ== -->
-<pre><code>[1] 0.371369</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="theoretical-distributions-as-approximations" class="section level3">
@@ -1823,47 +1817,21 @@ s &lt;- sd(x)
 <p>In cases like height, in which the data is rounded, the normal approximation is particularly useful if we deal with intervals that include exactly one round number. For example, the normal distribution is useful for approximating the proportion of students reporting values in intervals like the following three:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih4IDw9IDY4LjUpIC0gbWVhbih4IDw9IDY3LjUpXG5gYGAifQ== -->
-<pre class="r"><code>mean(x &lt;= 68.5) - mean(x &lt;= 67.5)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih4IDw9IDY4LjUpIC0gbWVhbih4IDw9IDY3LjUpXG5tZWFuKHggPD0gNjkuNSkgLSBtZWFuKHggPD0gNjguNSlcbm1lYW4oeCA8PSA3MC41KSAtIG1lYW4oeCA8PSA2OS41KVxuYGBgIn0= -->
+<pre class="r"><code>mean(x &lt;= 68.5) - mean(x &lt;= 67.5)
+mean(x &lt;= 69.5) - mean(x &lt;= 68.5)
+mean(x &lt;= 70.5) - mean(x &lt;= 69.5)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTE0NTMyXG4ifQ== -->
-<pre><code>[1] 0.114532</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih4IDw9IDY5LjUpIC0gbWVhbih4IDw9IDY4LjUpXG5gYGAifQ== -->
-<pre class="r"><code>mean(x &lt;= 69.5) - mean(x &lt;= 68.5)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTE5NDU4MVxuIn0= -->
-<pre><code>[1] 0.1194581</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih4IDw9IDcwLjUpIC0gbWVhbih4IDw9IDY5LjUpXG5gYGAifQ== -->
-<pre class="r"><code>mean(x &lt;= 70.5) - mean(x &lt;= 69.5)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTIxOTIxMlxuIn0= -->
-<pre><code>[1] 0.1219212</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Note how close we get with the normal approximation:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNjguNSwgbSwgcykgLSBwbm9ybSg2Ny41LCBtLCBzKSBcbmBgYCJ9 -->
-<pre class="r"><code>pnorm(68.5, m, s) - pnorm(67.5, m, s) </code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNjguNSwgbSwgcykgLSBwbm9ybSg2Ny41LCBtLCBzKSBcbnBub3JtKDY5LjUsIG0sIHMpIC0gcG5vcm0oNjguNSwgbSwgcykgXG5wbm9ybSg3MC41LCBtLCBzKSAtIHBub3JtKDY5LjUsIG0sIHMpIFxuYGBgIn0= -->
+<pre class="r"><code>pnorm(68.5, m, s) - pnorm(67.5, m, s) 
+pnorm(69.5, m, s) - pnorm(68.5, m, s) 
+pnorm(70.5, m, s) - pnorm(69.5, m, s) </code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTAzMTA3N1xuIn0= -->
-<pre><code>[1] 0.1031077</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNjkuNSwgbSwgcykgLSBwbm9ybSg2OC41LCBtLCBzKSBcbmBgYCJ9 -->
-<pre class="r"><code>pnorm(69.5, m, s) - pnorm(68.5, m, s) </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTA5NzEyMVxuIn0= -->
-<pre><code>[1] 0.1097121</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNzAuNSwgbSwgcykgLSBwbm9ybSg2OS41LCBtLCBzKSBcbmBgYCJ9 -->
-<pre class="r"><code>pnorm(70.5, m, s) - pnorm(69.5, m, s) </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTA4MTc0M1xuIn0= -->
-<pre><code>[1] 0.1081743</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>However, the approximation is not as useful for other intervals. For instance, notice how the approximation breaks down when we try to estimate:</p>
@@ -1872,9 +1840,6 @@ s &lt;- sd(x)
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih4IDw9IDcwLjkpIC0gbWVhbih4PD03MC4xKVxuYGBgIn0= -->
 <pre class="r"><code>mean(x &lt;= 70.9) - mean(x&lt;=70.1)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDIyMTY3NDlcbiJ9 -->
-<pre><code>[1] 0.02216749</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>with</p>
@@ -1883,9 +1848,6 @@ s &lt;- sd(x)
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNzAuOSwgbSwgcykgLSBwbm9ybSg3MC4xLCBtLCBzKVxuYGBgIn0= -->
 <pre class="r"><code>pnorm(70.9, m, s) - pnorm(70.1, m, s)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDgzNTk1NjJcbiJ9 -->
-<pre><code>[1] 0.08359562</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>In general, we call this situation <em>discretization</em>. Although the true height distribution is continuous, the reported heights tend to be more common at discrete values, in this case, due to rounding. As long as we are aware of how to deal with this reality, the normal approximation can still be a very useful tool.</p>
@@ -1899,9 +1861,6 @@ s &lt;- sd(x)
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMSAtIHBub3JtKDc2LCBtLCBzKVxuYGBgIn0= -->
 <pre class="r"><code>1 - pnorm(76, m, s)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDMyMDYwMDhcbiJ9 -->
-<pre><code>[1] 0.03206008</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>which mathematically is the grey area below: <a href="https://rafalab.github.io/dsbook/book_files/figure-html/intergrals-1.png"></a> The curve you see is the probability density for the normal distribution. In R, we get this using the function <code>dnorm</code>.</p>
@@ -1940,9 +1899,6 @@ tallest &lt;- replicate(B, {
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih0YWxsZXN0ID49IDcqMTIpXG5gYGAifQ== -->
 <pre class="r"><code>mean(tallest &gt;= 7*12)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDE5OVxuIn0= -->
-<pre><code>[1] 0.0199</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Here is the resulting distribution: <a href="https://rafalab.github.io/dsbook/book_files/figure-html/simulated-tallest-height-1.png"></a> Note that it does not look normal.</p>
@@ -1970,9 +1926,6 @@ qplot(x, f, geom = &quot;line&quot;, data = data.frame(x, f = dnorm(x)))</code><
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNSoxMiwgNjQsIDMpXG5gYGAifQ== -->
 <pre class="r"><code>pnorm(5*12, 64, 3)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDkxMjExMjJcbiJ9 -->
-<pre><code>[1] 0.09121122</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="2" style="list-style-type: decimal">
@@ -1983,9 +1936,6 @@ qplot(x, f, geom = &quot;line&quot;, data = data.frame(x, f = dnorm(x)))</code><
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMSAtIHBub3JtKDYqMTIsIDY0LCAzKVxuYGBgIn0= -->
 <pre class="r"><code>1 - pnorm(6*12, 64, 3)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDAzODMwMzgxXG4ifQ== -->
-<pre><code>[1] 0.003830381</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="3" style="list-style-type: decimal">
@@ -1996,9 +1946,6 @@ qplot(x, f, geom = &quot;line&quot;, data = data.frame(x, f = dnorm(x)))</code><
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNjcsIDY0LCAzKSAtIHBub3JtKDYxLCA2NCwgMylcbmBgYCJ9 -->
 <pre class="r"><code>pnorm(67, 64, 3) - pnorm(61, 64, 3)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNjgyNjg5NVxuIn0= -->
-<pre><code>[1] 0.6826895</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="4" style="list-style-type: decimal">
@@ -2006,24 +1953,11 @@ qplot(x, f, geom = &quot;line&quot;, data = data.frame(x, f = dnorm(x)))</code><
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNSoxMioyLjU0LCA2NCoyLjU0LCAzKjIuNTQpXG5gYGAifQ== -->
-<pre class="r"><code>pnorm(5*12*2.54, 64*2.54, 3*2.54)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNSoxMioyLjU0LCA2NCoyLjU0LCAzKjIuNTQpXG4xIC0gcG5vcm0oNioxMioyLjU0LCA2NCoyLjU0LCAzKjIuNTQpXG5wbm9ybSg2NyoyLjU0LCA2NCoyLjU0LCAzKjIuNTQpIC0gcG5vcm0oNjEqMi41NCwgNjQqMi41NCwgMyoyLjU0KVxuYGBgIn0= -->
+<pre class="r"><code>pnorm(5*12*2.54, 64*2.54, 3*2.54)
+1 - pnorm(6*12*2.54, 64*2.54, 3*2.54)
+pnorm(67*2.54, 64*2.54, 3*2.54) - pnorm(61*2.54, 64*2.54, 3*2.54)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDkxMjExMjJcbiJ9 -->
-<pre><code>[1] 0.09121122</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMSAtIHBub3JtKDYqMTIqMi41NCwgNjQqMi41NCwgMyoyLjU0KVxuYGBgIn0= -->
-<pre class="r"><code>1 - pnorm(6*12*2.54, 64*2.54, 3*2.54)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDAzODMwMzgxXG4ifQ== -->
-<pre><code>[1] 0.003830381</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG5vcm0oNjcqMi41NCwgNjQqMi41NCwgMyoyLjU0KSAtIHBub3JtKDYxKjIuNTQsIDY0KjIuNTQsIDMqMi41NClcbmBgYCJ9 -->
-<pre class="r"><code>pnorm(67*2.54, 64*2.54, 3*2.54) - pnorm(61*2.54, 64*2.54, 3*2.54)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNjgyNjg5NVxuIn0= -->
-<pre><code>[1] 0.6826895</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="5" style="list-style-type: decimal">
@@ -2034,9 +1968,6 @@ qplot(x, f, geom = &quot;line&quot;, data = data.frame(x, f = dnorm(x)))</code><
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMioocG5vcm0oMSwgMCwgMSktMC41KVxuYGBgIn0= -->
 <pre class="r"><code>2*(pnorm(1, 0, 1)-0.5)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNjgyNjg5NVxuIn0= -->
-<pre><code>[1] 0.6826895</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="6" style="list-style-type: decimal">
@@ -2057,9 +1988,6 @@ qplot(x, f, geom = &quot;line&quot;, data = data.frame(x, f = dnorm(x)))</code><
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucW5vcm0oMC45OSwgNjksIDMpXG5gYGAifQ== -->
 <pre class="r"><code>qnorm(0.99, 69, 3)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDc1Ljk3OTA0XG4ifQ== -->
-<pre><code>[1] 75.97904</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="8" style="list-style-type: decimal">
@@ -2075,9 +2003,6 @@ highest_IQ &lt;- replicate(B, {
 })
 hist(highest_IQ)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-plot-begin eyJjb25kaXRpb25zIjpbXSwiaGVpZ2h0Ijo0MzIuNjMyOSwic2l6ZV9iZWhhdmlvciI6MCwid2lkdGgiOjcwMH0= -->
-<p><img src="data:image/png;base64,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" /></p>
-<!-- rnb-plot-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <hr />
