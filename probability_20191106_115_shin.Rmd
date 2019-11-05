@@ -1,9 +1,9 @@
 ---
-
 output: html_notebook
 ---
 
 ## 13.10 Continuous probability
+
 
 In Section [8.4](https://rafalab.github.io/dsbook/distributions.html#cdf-intro), we explained why when summarizing a list of numeric values, such as heights, it is not useful to construct a distribution that defines a proportion to each possible outcome. For example, if we measure every single person in a very large population of size $n$ with extremely high precision, since no two people are exactly the same height, we need to assign the proportion $1/n$
   to each observed value and attain no useful summary at all. Similarly, when defining probability distributions, it is not useful to assign a very small probability to every single height.
