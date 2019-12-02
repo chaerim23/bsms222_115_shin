@@ -195,6 +195,7 @@ sd(x)
 
 2. Call the population average computed above $μ$ and the standard deviation $σ$. Now take a sample of size 50, with replacement, and construct an estimate for $μ$ and $σ$.
 ```{r}
+set.seed(1)
 N <- 50
 X <- sample(x, N, replace = TRUE)
 mean(X)
@@ -221,7 +222,7 @@ sd(X)
 5. Now that we have an estimate of $σ$, let’s call our estimate $s$. Construct a 95% confidence interval for $μ$.
 ```{r}
 s <- sd(X)
-c(mean(X) - 1.96 * s, mean(X) + 1.96 *s)
+c(mean(X) - 1.96 * s/sqrt(N), mean(X) + 1.96 *s/sqrt(N))
 ```
 
 6. Now run a Monte Carlo simulation in which you compute 10,000 confidence intervals as you have just done. What proportion of these intervals include $μ$?
