@@ -1,0 +1,25 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(ggridges)
+library(ggthemes)
+
+d <- read.table("DDG2P_24_9_2019.with_pLI.txt", sep='\t', header = T)
+  
+d %>% 
+  filter(mutation.consequence %in% c('loss of function', 'all missense/in frame', 'cis-regulatory or promotor mutation', 'dominant negative', 'gain of function')) %>%
+  filter(allelic.requirement %in% c("biallelic", "hemizygous", "monoallelic")) %>%
+  ggplot(aes(pLI, str_wrap(mutation.consequence, 15))) + 
+  geom_density_ridges(aes(fill=mutation.consequence), alpha=.5, show.legend = FALSE) +
+  lims(x=c(0, 1)) +
+  labs(x="pLI score", y="Mutation consequence", title = "Mutation consequence with pLI&allelic requirement in DDG2P") +
+  facet_wrap(~allelic.requirement, ncol=6) + theme_clean()
+```
+(수정 전) https://htmlpreview.github.io/?https://github.com/chaerim23/bsms222_115_shin/blob/master/assignment1_115_shin.nb.html
+
+plot의 비어있는 부분을 정리하여 정보를 전달하는 내용을 담고 있는 부분만 표현되도록 mutation concequence와 allelic requirement 부분을 filtering했다. gain of function과 dominant negative, cis-regulatory or promotor mutation은 각각 하나의 allelic requirement에서만 표현되었지만 각 allelic requirment에서 다른 mutation과 비슷한 그래프 형태를 나타내어 전체적인 양상을 보여주거나(dominant negative, cis-regulatory or promotor mutation) 예외를 표현하고 있기 때문에(gain of function) 삭제하지 않았다.또한 pLI의 값은 0에서 1 사이로 나타나므로 pLI score를 나타내는 x축의 범위가 0에서 1 사이가 되도록 조정했다. Legend의 정보 또한 이미 y축에 표시가 되어 있으므로 삭제하였다.
